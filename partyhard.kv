@@ -1,0 +1,162 @@
+<PartyHardGame>
+    dude: party_dude
+    displayed_mode: label_mode
+    displayed_time: label_time
+    displayed_score: label_score
+    
+    canvas:
+        Rectangle:
+            source: "assets/bg-1.jpg"
+            pos: self.pos
+            size: self.size
+
+    PartyDude:
+        id: party_dude
+        text: "Dude"
+        pos: ((self.parent.width / 2) - (self.width / 2), 0)
+        size: (self.parent.height / 5, self.parent.height / 5)
+        
+    ScoreBoard:
+        Label:
+            id: label_mode
+            text: "PartyTime"
+            font_name: "assets/KOMIKAX.ttf"
+            font_size: self.parent.height / 2
+        Label:
+            id: label_time
+            text: "30"
+            font_name: "assets/KOMIKAX.ttf"
+            font_size: self.parent.height / 2
+        Label:
+            id: label_score
+            text: "0"
+            font_name: "assets/KOMIKAX.ttf"
+            font_size: self.parent.height / 2
+
+<PartyDude>:
+    #size: 100, 100
+    canvas:
+        Rectangle:
+            source: "assets/party-dude.png"
+            pos: self.pos
+            size: self.size
+
+<RandomItem>:
+    #size: 50, 50
+    canvas:
+        Rectangle:
+            source: "assets/item-cocktail_green.png"
+            pos: self.pos
+            size: self.size
+
+<ScoreBoard@BoxLayout>:
+    size: self.parent.width, self.parent.height / 10
+    pos: 0, self.parent.height - self.height
+
+
+<StartScreen>
+    BoxLayout:
+        Image:
+            source: "assets/Splash-Screen-app.png"
+
+    BoxLayout:
+        size_hint: 1, 0.3
+        orientation: "vertical"
+
+        BoxLayout:
+            orientation: "horizontal"
+            
+            Button:
+                size_hint: 0.7, 1
+                text: "START"
+                font_name: "assets/KOMIKAX.ttf"
+                font_size: self.parent.height / 2
+                on_release: root.manager.current = "game_screen"
+            
+        
+#        BoxLayout:
+#            
+#            Label:
+#                text: "Music"
+#                font_size: self.parent.height / 2
+#                font_name: "assets/KOMIKAX.ttf"
+#            Switch:
+#            
+#        
+#        BoxLayout:
+#            
+#            Label:
+#                text: "Sound"
+#                font_size: self.parent.height / 2
+#                font_name: "assets/KOMIKAX.ttf"
+#            Switch:
+
+            
+
+<GameScreen>
+    game: party_hard_game
+
+    PartyHardGame
+        id: party_hard_game
+
+<EndScreen>
+    displayed_points: label_points
+    
+    BoxLayout:
+        Image:
+            source: "assets/End-Screen-app.png"
+
+    BoxLayout:
+        size_hint: 1, 0.2
+        orientation: "vertical"
+
+        BoxLayout:
+            orientation: "horizontal"
+            
+            Label:
+                id: label_points
+                text: 
+                font_size: self.parent.height / 2
+                font_name: "assets/KOMIKAX.ttf"
+
+        BoxLayout:
+            orientation: "horizontal"
+            
+            Button:
+                size_hint: 0.7, 1
+                text: "RESTART"
+                font_name: "assets/KOMIKAX.ttf"
+                on_release: root.manager.current = "start_screen"
+
+            Button:
+                size_hint: 0.7, 1
+                text: "CREDITS"
+                font_name: "assets/KOMIKAX.ttf"
+                on_release: root.manager.current = "credits"
+
+<CreditScreen>
+    BoxLayout:
+        Image:
+            source: "assets/bg-2.jpg"
+
+    BoxLayout:
+        size_hint: 1, 0.2
+        orientation: "vertical"
+
+        BoxLayout:
+            orientation: "horizontal"
+            
+            Label:
+                id: credittext
+                text: "Manoo, Perelin & jlee7"
+                font_size: self.parent.height / 2
+                font_name: "assets/KOMIKAX.ttf"
+
+        BoxLayout:
+            orientation: "horizontal"
+            
+            Button:
+                size_hint: 0.7, 1
+                text: "HOME"
+                font_name: "assets/KOMIKAX.ttf"
+                on_release: root.manager.current = "start_screen"
