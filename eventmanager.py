@@ -18,6 +18,7 @@ class EventManager(object):
     #----------------------------------------------------------------------
 
     def post(self, event):
+        """ Post events to all listeners. """
 
         if (not isinstance (event, TickEvent) 
             and not isinstance (event, DudeMoveEvent) 
@@ -32,11 +33,6 @@ class EventManager(object):
         for listener in self.listeners:
             print listener,
             listener.notify(event)
-
-    #----------------------------------------------------------------------
-
-    def test(self):
-        print "Testausgabe"
 
 #----------------------------------------------------------------------
 
