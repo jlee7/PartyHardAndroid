@@ -11,4 +11,4 @@ Jo Sef
 
 
 Link:
-Link to [https://play.google.com/store/apps/details?id=org.partyhard.com.partyhard](Google Play).
+Link to [Google PlayStore](https://play.google.com/store/apps/details?id=org.partyhard.com.partyhard).
